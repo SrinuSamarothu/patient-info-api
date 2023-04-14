@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patientinfo-api
+spec:
+  type: ClusterIP
+  selector:
+    app: patientinfo-api
+  ports:
+  - port: 80

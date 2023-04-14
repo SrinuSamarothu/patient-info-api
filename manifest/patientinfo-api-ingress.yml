@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: patientinfo-api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /api/PatientInfo/GetallPatientInfo
+        pathType: Prefix
+        backend:
+          service:
+            name: patientinfo-api
+            port:
+              number: 80
+      - path: /api/PatientInfo/GetPatientInfobyemail/?p*
+        pathType: Prefix
+        backend:
+          service:
+            name: patientinfo-api
+            port:
+              number: 80
+      - path: /api/PatientInfo/GetPatientInfobyId/?p*
+        pathType: Prefix
+        backend:
+          service:
+            name: patientinfo-api
+            port:
+              number: 80
+      - path: /api/PatientInfo/AddnewPatientinfo
+        pathType: Prefix
+        backend:
+          service:
+            name: patientinfo-api
+            port:
+              number: 80
+      - path: /api/PatientInfo/UpdatePatientinfo/?p*
+        pathType: Prefix
+        backend:
+          service:
+            name: patientinfo-api
+            port:
+              number: 80
