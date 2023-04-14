@@ -130,7 +130,7 @@ namespace DataLogic
                 if (patient.Gender != null && patientinfo.Gender == null || patientinfo.Gender == "" || patientinfo.Gender == " ") patient.Gender = patient.Gender;
                 else patient.Gender = patientinfo.Gender;
 
-                if (patient.Age != null && patientinfo.Age == null || patientinfo.Age == 0) patient.Age = patient.Age;
+                if (patient.Age != null && patientinfo.Age == null || patientinfo.Age == " " || patientinfo.Age == "") patient.Age = patient.Age;
                 else patient.Age = patientinfo.Age;
                 
                 if (patient.Phone != null && patientinfo.Phone== null || patientinfo.Phone== 0) patient.Phone= patient.Phone;
